@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All I Wanted Was the Poster — A Marty Supreme Story</title>
+    <meta name="description" content="Three months. Twelve cinemas. One Marty Supreme poster. The story of a Kazakh film fan's obsessive quest across London.">
+    <meta property="og:title" content="All I Wanted Was the Poster">
+    <meta property="og:description" content="Three months. Twelve cinemas. One Marty Supreme poster.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="All I Wanted Was the Poster">
+    <meta name="twitter:description" content="Three months. Twelve cinemas. One Marty Supreme poster.">
+    <meta name="twitter:image" content="images/og-image.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --muted: #777;
+            --accent: #1a1a1a;
+            --accent-glow: rgba(0, 0, 0, 0.04);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: transparent;
+            pointer-events: none;
+        }
+
+        .hero-ball-wrapper {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            margin-bottom: 3rem;
+        }
+
+        .hero-ball-canvas {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .hero-ball-canvas canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-ball-settled {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .hero-ball-settled.visible {
+            opacity: 1;
+            animation: floatOnce 2s ease-in-out forwards;
+        }
+
+        .hero-ball-settled img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes floatOnce {
+            0% { transform: translate(-50%, -50%); }
+            50% { transform: translate(-50%, calc(-50% - 12px)); }
+            100% { transform: translate(-50%, -50%); }
+        }
+
+        .hero h1 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(0.7rem, 1.8vw, 1rem);
+            font-weight: 300;
+            color: var(--muted);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            white-space: nowrap;
+        }
+
+        .hero .byline {
+            font-size: 0.95rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+        }
+
+        .hero .byline strong { color: var(--text); font-weight: 500; }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--muted);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .scroll-hint .arrow {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, #999, transparent);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* ─── SECTIONS ─── */
+        section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .section-full {
+            max-width: 100%;
+            padding: 0;
+        }
+
+        .chapter-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.15;
+            margin-bottom: 2rem;
+        }
+
+        h2 em {
+            font-style: italic;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #444;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        p strong { color: var(--text); font-weight: 600; }
+
+        .text-center { text-align: center; }
+        .text-center p { margin-left: auto; margin-right: auto; }
+
+        /* ─── FULL-WIDTH IMAGE ─── */
+        .full-image {
+            width: 100%;
+            max-width: 1200px;
+            margin: 3rem auto;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .full-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ─── IMAGE GRID ─── */
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+
+        .image-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+
+        .image-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* ─── SINGLE IMAGE ─── */
+        .story-image {
+            margin: 3rem 0;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        .story-image img {
+            width: 100%;
+            max-width: 680px;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .story-image.small img {
+            max-width: 360px;
+        }
+
+        .caption {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-top: 0.75rem;
+            font-style: italic;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        /* ─── PULL QUOTE ─── */
+        .pull-quote {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .pull-quote p {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 700;
+            font-style: italic;
+            line-height: 1.3;
+            color: var(--text);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* ─── DIVIDER ─── */
+        .divider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            padding: 4rem 0;
+        }
+
+        .divider .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .divider .line {
+            width: 40px;
+            height: 1px;
+            background: #ddd;
+        }
+
+        /* ─── COUNTER ─── */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            padding: 4rem 2rem;
+            border-top: 1px solid #e5e5e5;
+            border-bottom: 1px solid #e5e5e5;
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat .number {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 3rem;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stat .label {
+            font-size: 0.8rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 0.5rem;
+        }
+
+        /* ─── CINEMA LIST ─── */
+        .cinema-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 0.75rem;
+            margin: 2rem 0;
+        }
+
+        .cinema-list li {
+            padding: 1rem 1.25rem;
+            background: #f8f8f8;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: var(--muted);
+            transition: all 0.3s;
+        }
+
+        .cinema-list li:hover {
+            border-color: var(--accent);
+            color: var(--text);
+        }
+
+        .cinema-list li.success {
+            border-color: #1a1a1a;
+            background: #1a1a1a;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* ─── ESCALATION TIMELINE ─── */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 3rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #1a1a1a, rgba(26,26,26,0.1));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            transform: translateX(-4px);
+        }
+
+        .timeline-item h3 {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .timeline-item p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* ─── GOATS ─── */
+        .goats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .goat-card {
+            text-align: center;
+        }
+
+        .goat-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .goat-card h3 {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .goat-card .achievement {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        @media (max-width: 640px) {
+            .goats-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ─── FINALE ─── */
+        .finale {
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .finale h2 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+        }
+
+        .finale .dream-big {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-top: 3rem;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: var(--muted);
+            max-width: none;
+            margin: 0 auto 0.5rem;
+        }
+
+        footer .author {
+            font-weight: 600;
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 640px) {
+            section { padding: 4rem 1.25rem; }
+            .image-grid { grid-template-columns: 1fr; }
+            .image-grid.three { grid-template-columns: 1fr; }
+            .stats-bar { gap: 2rem; }
+            .pull-quote { padding: 5rem 1.25rem; }
+            .cinema-list { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* ─── SECTION NAV ─── */
+        .section-nav {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            z-index: 100;
+        }
+
+        .section-nav a {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .section-nav a.active {
+            background: #1a1a1a;
+            transform: scale(1.3);
+        }
+
+        .section-nav a:hover::after {
+            content: attr(data-label);
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            white-space: nowrap;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            background: #fff;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 900px) {
+            .section-nav { display: none; }
+        }
+
+        /* ─── SHARE BUTTONS ─── */
+        .share-bar {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid #e0e0e0;
+            color: #1a1a1a;
+            background: #fff;
+        }
+
+        .share-btn:hover {
+            background: #1a1a1a;
+            color: #fff;
+            border-color: #1a1a1a;
+        }
+
+        .share-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* ─── SECTION DIVIDER ─── */
+        .section-divider {
+            width: 40px;
+            height: 1px;
+            background: #ddd;
+            margin: 0 auto;
+        }
+
+        /* ─── FADE-IN ANIMATION ─── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav class="section-nav">
+    <a href="#ch1" data-label="Before Marty"></a>
+    <a href="#ch2" data-label="The Film"></a>
+    <a href="#ch3" data-label="Why This Deeply"></a>
+    <a href="#ch4" data-label="The Ask"></a>
+    <a href="#ch5" data-label="The Runaround"></a>
+    <a href="#ch6" data-label="The Escalation"></a>
+    <a href="#ch7" data-label="The Wall"></a>
+    <a href="#ch8" data-label="Good Luck Timmy"></a>
+    <a href="#ch9" data-label="Prince Charles"></a>
+    <a href="#ch10" data-label="No Longer Empty"></a>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<header class="hero">
+    <div class="hero-ball-wrapper">
+        <div class="hero-ball-canvas"><canvas id="ballCanvas"></canvas></div>
+        <div class="hero-ball-settled" id="settledBall"><img src="images/marty_ball.avif" alt="Marty Supreme"></div>
+    </div>
+    <h1>All I Wanted<br>Was the Poster</h1>
+    <p class="subtitle">Three Months. Twelve Cinemas. One Marty Supreme Poster.</p>
+    <p class="byline">By <strong>Kassymkhan Sundetbay</strong> &middot; London, March 2026</p>
+    <div class="scroll-hint">
+        <span>Scroll</span>
+        <div class="arrow"></div>
+    </div>
+</header>
+
+<!-- ═══════════════════ OPENING IMAGE ═══════════════════ -->
+<div class="section-full">
+    <div class="full-image">
+        <img src="images/opening.jpg" alt="Marty Supreme" loading="lazy">
+    </div>
+</div>
+
+
+<!-- ═══════════════════ I. BEFORE MARTY ═══════════════════ -->
+<section class="fade-in">
+    <div class="chapter-label" id="ch1">Chapter I</div>
+    <h2>Before Marty</h2>
+    <p>I should start before Marty Supreme. Because the story didn't begin with a poster. It began with a screen. Long before London, there was Almaty.</p>
+    <p>I was a cinema fan before I moved to London. The screens just got bigger when I moved. I've been watching Timoth&eacute;e Chalamet since before I graduated from high school (2017).</p>
+
+    <div class="image-grid">
+        <img src="images/bfi.jpg" alt="BFI London Film Festival 2022 — Bones and All" loading="lazy">
+        <img src="images/vogue.jpg" alt="Timothée Chalamet on L'Uomo Vogue" loading="lazy">
+    </div>
+
+    <p>By March 2026, I had logged 99 films on Letterboxd. Marty Supreme pinned. 100 is reserved for the <em>Drama</em>.</p>
+
+    <div class="story-image centered">
+        <img src="images/letterboxd.png" alt="Letterboxd profile" loading="lazy">
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ PULL QUOTE ═══════════════════ -->
+<div class="pull-quote fade-in">
+    <p>"It wasn't just a film to me. It was <em>personal.</em>"</p>
+</div>
+
+<!-- ═══════════════════ II. THE FILM ═══════════════════ -->
+<section class="fade-in">
+    <div class="chapter-label" id="ch2">Chapter II</div>
+    <h2>The Film That Changed <em>Everything</em></h2>
+    <div class="story-image centered">
+        <img src="images/pimlico.jpg" alt="Marty Supreme poster at Pimlico tube station" loading="lazy">
+    </div>
+    <p class="caption">Marty Supreme and London Tube</p>
+    <p>Five days later &mdash; New Year's Eve, December 31 &mdash; I was back. Everyman The Whiteley this time.</p>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ III. WHY THIS DEEPLY ═══════════════════ -->
+<section class="fade-in">
+    <div class="chapter-label" id="ch3">Chapter III</div>
+    <h2>Why This Film, Why <em>This Deeply</em></h2>
+    <p>You have to understand where I come from to understand why a table tennis movie hit me the way it did.</p>
+    <p>I'm from Kazakhstan. I studied at KIMEP University in Almaty, where table tennis isn't just a club sport &mdash; it's varsity. It's serious. <strong>YES, it is popular in Asia.</strong></p>
+    <p>Marty travels to Japan &mdash; pursuing the sport, pursuing dreams. I know that journey. I've made my own version of it. Moving to London.</p>
+    <div class="story-image centered small">
+        <img src="images/kz_poster.jpg" alt="Марти Великолепный — KZ version of the poster" loading="lazy">
+    </div>
+
+    <p>And then there's the Sphere. Not the one in Vegas. I'm talking about the Nur Alem sphere from Expo 2017 in Astana, the one I saw every day during uni days in Astana, the one that looks like it could be a giant table tennis ball sitting on the Kazakh steppe.</p>
+
+    <div class="image-grid">
+        <img src="images/nur_alem.jpg" alt="Nur Alem Sphere, Expo 2017 Astana" loading="lazy">
+        <img src="images/vegas_sphere.jpg" alt="Vegas Sphere — MARTY SUPREME: DREAM BIG" loading="lazy">
+    </div>
+
+    <div class="chapter-label" style="margin-top: 4rem;">G.O.A.T. &mdash; First Time for Kazakhstan Edition, 2026</div>
+
+    <div class="goats-grid">
+        <div class="goat-card">
+            <img src="images/shaidorov.webp" alt="Mikhail Shaidorov" loading="lazy">
+            <h3>Mikhail Shaidorov</h3>
+            <p class="achievement">Gold Medal, Winter Olympics</p>
+            <p class="achievement" style="font-size: 0.75rem; color: #aaa; margin-top: 0.25rem;">Dune BTW</p>
+        </div>
+        <div class="goat-card">
+            <img src="images/kairat.webp" alt="FC Kairat Almaty" loading="lazy">
+            <h3>FC Kairat Almaty</h3>
+            <p class="achievement">UCL, Arsenal Match in London</p>
+        </div>
+        <div class="goat-card">
+            <img src="images/rybakina.avif" alt="Elena Rybakina" loading="lazy">
+            <h3>Elena Rybakina</h3>
+            <p class="achievement">Winner, Australia Open</p>
+        </div>
+    </div>
+
+    <p>I went to my friends (If you're still in Tokyo &mdash; please go). On Telegram, I messaged: (Please get me the poster). The poster hunt had gone international. A Kazakh in London, messaging Kazakhs in Tokyo, trying to collect Marty Supreme memorabilia from Japan.</p>
+
+    <div class="image-grid">
+        <img src="images/tokyo1.jpg" alt="Instagram message to friend in Tokyo" loading="lazy">
+        <img src="images/tokyo2.jpg" alt="Telegram message — Please get me the poster" loading="lazy">
+    </div>
+
+    <p>When I watched Marty Supreme, I saw my culture. <strong>The obsession, the precision, the refusal to give up.</strong></p>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ IV. THE ASK ═══════════════════ -->
+<section class="fade-in">
+    <div class="chapter-label" id="ch4">Chapter IV</div>
+    <h2>The Ask</h2>
+    <p>The ask was simple. Cinemas get promotional posters from distributors. They hang them in the lobby for the run of the film. When the film leaves, the posters come down. They get thrown away, recycled, or &mdash; if a staff member fancies it &mdash; taken home.</p>
+    <p>I didn't want to steal one. I didn't want a reprint from the web. I wanted an actual cinema poster, the one that had hung on the wall while real audiences walked past it on their way to see the film. A piece of the experience. <strong>Physical. Real.</strong></p>
+    <p>I wanted to put it on the wall above my bed. That's it. That's the whole ask.</p>
+
+    <div class="story-image centered">
+        <img src="images/screen_on_green.jpg" alt="Screen on the Green — MARTY SUPREME NO OTHER CHOICE" loading="lazy">
+    </div>
+    <p class="caption" style="text-align:center; margin: 0 auto;"><strong>MARTY SUPREME NO OTHER CHOICE.</strong> There really was no other choice.</p>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ V. THE RUNAROUND ═══════════════════ -->
+<section class="fade-in">
+    <div class="chapter-label" id="ch5">Chapter V</div>
+    <h2>The Runaround</h2>
+
+    <div class="story-image centered">
+        <img src="images/odeon.jpg" alt="Marty Supreme poster at Odeon" loading="lazy">
+    </div>
+    <p class="caption">SO CLOSE YET SO FAR</p>
+
+    <p>Five Odeon cinemas. The same answer dressed up in five different ways: not my problem. I don't blame Odeon &mdash; not really. They're a massive chain. Poster requests probably aren't in anyone's job description. The staff were polite. The system just wasn't built for someone who cared this much about a piece of promotional cardboard. But Odeon wasn't the only place I tried. Garden Cinema. Rich Mix. Vue. Curzon. Everyman. Picturehouse. I reached out to the Barbican, left my name and number, scribbled contact details on scraps of paper, handed them to box office staff. I wrote emails. I made calls. I left notes.</p>
+
+    <ul class="cinema-list">
+        <li>Odeon Haymarket</li>
+        <li>Odeon Swiss Cottage</li>
+        <li>Odeon North Greenwich</li>
+        <li>Odeon Tottenham Court Rd</li>
+        <li>Garden Cinema</li>
+        <li>Richmix</li>
+        <li>Vue</li>
+        <li>Curzon</li>
+        <li>Everyman</li>
+        <li>Picturehouse</li>
+        <li>The Barbican</li>
+        <li class="success">Prince Charles Cinema &check;</li>
+    </ul>
+
+
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ STATS ═══════════════════ -->
+<div class="stats-bar fade-in">
+    <div class="stat">
+        <div class="number">3</div>
+        <div class="label">Months</div>
+    </div>
+    <div class="stat">
+        <div class="number">12</div>
+        <div class="label">Cinemas</div>
+    </div>
+    <div class="stat">
+        <div class="number">1</div>
+        <div class="label">Poster</div>
+    </div>
+    <div class="stat">
+        <div class="number">0</div>
+        <div class="label">Gave Up</div>
+    </div>
+</div>
+
+<!-- ═══════════════════ VI. THE ESCALATION ═══════════════════ -->
+<section class="fade-in">
+    <div class="chapter-label" id="ch6">Chapter VI</div>
+    <h2>The Escalation</h2>
+    <p>There comes a moment in every quest when a reasonable person would give up. I am not, it turns out, a reasonable person. At Everyman, I stood in front of their &ldquo;Dream Big: Tell Us Your 2026 Resolutions&rdquo; display.</p>
+    <p>I wrote down my goals for 2026 on one of those sticky notes. My resolution was already clear. It had been clear since Boxing Day. After the film, I'd started wanting the poster &mdash; not as a souvenir, but as a daily reminder.</p>
+    <p>A reminder on the wall above my bed that everything is possible. <strong>DREAM BIG.</strong></p>
+    <p>That's what I intended to do.</p>
+
+    <div class="story-image centered">
+        <img src="images/dream_big.jpg" alt="Everyman Dream Big display" loading="lazy">
+    </div>
+    <p class="caption" style="text-align:center; margin: 0 auto;">Everyman Cinema, 26 December, 2025. Standing in front of the Marty Supreme <strong>DREAM BIG</strong> display.</p>
+
+    <div class="story-image centered">
+        <img src="images/dossier.jpg" alt="The campaign dossier" loading="lazy">
+    </div>
+
+    <p>I printed a campaign for Odeon (specifically). P.S. I wasn't joking. But I was also absolutely. Joking.</p>
+
+    <p>I even created a Telegram sticker &mdash; the most accurate portrait of my emotional state.</p>
+
+    <div class="story-image centered small">
+        <img src="images/sticker.png" alt="Marty Supreme monkey sticker" loading="lazy">
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ VII. THE WALL ═══════════════════ -->
+<section class="fade-in">
+    <div class="chapter-label" id="ch7">Chapter VII</div>
+    <h2>The Wall Above My Bed</h2>
+    <p>There's a photo I took of my bedroom. Above the bed: nothing. A blank white wall. A rectangle of emptiness where a Marty Supreme poster should be.</p>
+
+    <div class="story-image centered">
+        <img src="images/empty_wall.jpg" alt="Empty wall above the bed" loading="lazy">
+    </div>
+
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ VIII. GOOD LUCK TIMMY ═══════════════════ -->
+<section class="fade-in">
+    <div class="chapter-label" id="ch8">Chapter VIII</div>
+    <h2>Good Luck, <em>Timmy</em></h2>
+    <p>While I was fighting my war against cinema bureaucracy, the awards season was unfolding exactly as anyone who'd seen Marty Supreme knew it would. It started at the Golden Globes. Chalamet won. I made a WhatsApp sticker of Timmy holding the Globe and sent it to my friend Jaya. Here, it was enough to convince her to continue our graduation.</p>
+
+    <div class="story-image centered small">
+        <img src="images/whatsapp.jpg" alt="WhatsApp reaction to Golden Globe win" loading="lazy">
+    </div>
+
+    <p>Yes, I even graduated from uni in between running around London.</p>
+
+    <div class="story-image centered">
+        <img src="images/graduation1.jpg" alt="Graduation" loading="lazy">
+    </div>
+
+    <p>And then came the Oscars. Nine Academy Award nominations...</p>
+
+    <div class="story-image centered">
+        <img src="images/oscars.jpg" alt="9 Academy Award Nominations" loading="lazy">
+    </div>
+
+    <p>Good luck, Timmy. Good luck at the Oscars.</p>
+    <p>You deserve it. You deserve it because you made me believe that Marty's obsession was noble.</p>
+    <p>That caring too much about something isn't weakness &mdash; <strong>it's the whole point.</strong></p>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ DIVIDER ═══════════════════ -->
+<div class="divider">
+    <div class="line"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="line"></div>
+</div>
+
+<!-- ═══════════════════ IX. PRINCE CHARLES ═══════════════════ -->
+<section class="fade-in">
+    <div class="chapter-label" id="ch9">Chapter IX</div>
+    <h2>Prince Charles Cinema</h2>
+    <p>And then... after three months, twelve cinemas, a PowerPoint presentation, a term sheet, a legally drafted contract, a campaign dossier, and more bus and tube journeys across London than I care to count &mdash; <strong>it happened.</strong></p>
+    <p>Not at Odeon. Not at Everyman. Not at the Barbican. At <strong>Prince Charles Cinema.</strong></p>
+    <p>The weight of three months of persistence finally, physically, in my grip.</p>
+
+    <div class="story-image centered">
+        <img src="images/poster_in_hand.jpg" alt="The poster, finally in hand" loading="lazy">
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ X. THE WALL IS NO LONGER EMPTY ═══════════════════ -->
+<section class="fade-in">
+    <div class="chapter-label" id="ch10">Chapter X</div>
+    <h2>The Wall Is No Longer <em>Empty</em></h2>
+
+    <p>It's up now. Not yet above my bed (building a frame), and then it should be where it was always supposed to go.</p>
+
+    <div class="story-image centered">
+        <img src="images/poster_on_wall.jpg" alt="The poster on the wall — mission complete" loading="lazy">
+    </div>
+
+    <p>It's just a poster. I know that. Odeon's contract said its value was nil, and they were wrong.</p>
+    <p>But it's not about the value. It's about the quest. It's about caring deeply about something that everyone else thinks is trivial and refusing to stop until you get it.</p>
+    <p>That's what Timoth&eacute;e did with Marty's journey. That's what Josh does with cinema. That's what A24 does with every film they touch.</p>
+    <p><strong>Thank you to all people who made this story and journey possible! To everyone I met along the way, to every worker of the cinema theatre, to London.</strong></p>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ FINALE ═══════════════════ -->
+<div class="finale fade-in">
+    <p style="font-size: 1.2rem; color: var(--text); max-width: 600px; margin: 0 auto 1.5rem;">Good luck, Timmy. Get that Oscar. The poster's on the wall. The wall is complete.</p>
+    <p style="font-weight: 900; font-size: 1.2rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text);">Always Dream Big</p>
+
+    <div class="story-image centered" style="margin-top: 4rem;">
+        <img src="images/oscar.svg" alt="Academy Award" style="max-width: 500px; border-radius: 0;">
+    </div>
+
+    <div id="countdown" style="margin-top: 3rem;">
+        <p style="font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);">Oscars Countdown</p>
+        <div id="countdown-timer" style="font-family: 'Inter', sans-serif; font-weight: 900; font-size: clamp(1.5rem, 4vw, 2.5rem); color: var(--text); margin-top: 0.5rem;"></div>
+    </div>
+</div>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+    <p class="author">Kassymkhan Sundetbay</p>
+    <p>London, March 2026</p>
+</footer>
+
+<!-- ═══════════════════ SCROLL ANIMATION ═══════════════════ -->
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Ball physics animation
+    (function() {
+        const canvas = document.getElementById('ballCanvas');
+        const ctx = canvas.getContext('2d');
+        const container = canvas.parentElement;
+        let scale = 2;
+
+        function resize() {
+            scale = window.devicePixelRatio || 2;
+            canvas.width = container.offsetWidth * scale;
+            canvas.height = container.offsetHeight * scale;
+            canvas.style.width = container.offsetWidth + 'px';
+            canvas.style.height = container.offsetHeight + 'px';
+            ctx.setTransform(scale, 0, 0, scale, 0, 0);
+        }
+        resize();
+
+        const W = () => container.offsetWidth;
+        const H = () => container.offsetHeight;
+        const R = 40;
+        const GRAVITY = 0.3;
+        const BOUNCE = 0.6;
+        const FRICTION = 0.995;
+        const CENTER_X = () => W() / 2;
+        const CENTER_Y = () => H() / 2;
+
+        const orangeImg = new Image();
+        orangeImg.src = 'images/orange_ball.jpg';
+
+        const balls = [];
+        const TOTAL_WHITE = 15;
+        let orangeBall = null;
+        let animDone = false;
+        let spawnIndex = 0;
+        let frame = 0;
+        let floorRemoved = false;
+        let floorRemovedAt = 0;
+
+        function createBall(isOrange) {
+            return {
+                x: CENTER_X() + (Math.random() - 0.5) * W() * 0.5,
+                y: -R - Math.random() * 300,
+                vx: (Math.random() - 0.5) * 3,
+                vy: Math.random() * 2 + 1,
+                r: R,
+                isOrange: isOrange,
+                alive: true
+            };
+        }
+
+        function drawBall(b) {
+            if (b.isOrange && orangeImg.complete) {
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+                ctx.clip();
+                ctx.drawImage(orangeImg, b.x - b.r, b.y - b.r, b.r * 2, b.r * 2);
+                ctx.restore();
+            } else {
+                ctx.beginPath();
+                ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+                const grad = ctx.createRadialGradient(b.x - b.r * 0.3, b.y - b.r * 0.3, b.r * 0.05, b.x, b.y, b.r);
+                grad.addColorStop(0, '#ffffff');
+                grad.addColorStop(0.6, '#f5f5f5');
+                grad.addColorStop(1, '#e0e0e0');
+                ctx.fillStyle = grad;
+                ctx.fill();
+                // subtle border
+                ctx.strokeStyle = 'rgba(0,0,0,0.06)';
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
+        }
+
+        function collide(a, b) {
+            const dx = b.x - a.x;
+            const dy = b.y - a.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const minDist = a.r + b.r;
+            if (dist < minDist && dist > 0.01) {
+                const nx = dx / dist;
+                const ny = dy / dist;
+                const overlap = minDist - dist;
+                a.x -= nx * overlap * 0.5;
+                a.y -= ny * overlap * 0.5;
+                b.x += nx * overlap * 0.5;
+                b.y += ny * overlap * 0.5;
+                const dvx = a.vx - b.vx;
+                const dvy = a.vy - b.vy;
+                const dot = dvx * nx + dvy * ny;
+                if (dot > 0) {
+                    a.vx -= dot * nx * 0.8;
+                    a.vy -= dot * ny * 0.8;
+                    b.vx += dot * nx * 0.8;
+                    b.vy += dot * ny * 0.8;
+                }
+            }
+        }
+
+        function update() {
+            frame++;
+
+            // Spawn balls
+            if (spawnIndex <= TOTAL_WHITE && frame % 6 === 0) {
+                if (spawnIndex < TOTAL_WHITE) {
+                    balls.push(createBall(false));
+                } else {
+                    orangeBall = createBall(true);
+                    orangeBall.x = CENTER_X();
+                    orangeBall.y = -R - 50;
+                    balls.push(orangeBall);
+                }
+                spawnIndex++;
+            }
+
+            const floor = CENTER_Y() + R + 20;
+
+            for (const b of balls) {
+                if (!b.alive) continue;
+
+                // Orange ball: float to center after floor is removed
+                if (b.isOrange && floorRemoved) {
+                    // Gentle attraction to center
+                    b.vx += (CENTER_X() - b.x) * 0.008;
+                    b.vy += (CENTER_Y() - b.y) * 0.008;
+                    b.vx *= 0.96;
+                    b.vy *= 0.96;
+                    b.x += b.vx;
+                    b.y += b.vy;
+
+                    const speed = Math.sqrt(b.vx * b.vx + b.vy * b.vy);
+                    if (speed < 0.3 && Math.abs(b.x - CENTER_X()) < 3 && Math.abs(b.y - CENTER_Y()) < 3) {
+                        b.settled = true;
+                    }
+                    continue;
+                }
+
+                b.vy += GRAVITY;
+                b.vx *= FRICTION;
+                b.x += b.vx;
+                b.y += b.vy;
+
+                // Floor bounce (before floor is removed)
+                if (!floorRemoved && b.y + b.r > floor) {
+                    b.y = floor - b.r;
+                    b.vy *= -BOUNCE;
+                }
+
+                // Wall bounce
+                if (b.x - b.r < 0) { b.x = b.r; b.vx = Math.abs(b.vx) * BOUNCE; }
+                if (b.x + b.r > W()) { b.x = W() - b.r; b.vx = -Math.abs(b.vx) * BOUNCE; }
+
+                // After floor removed: white balls fall through
+                if (floorRemoved && !b.isOrange) {
+                    b.vy += GRAVITY;
+                    if (b.y > H() + b.r * 2) {
+                        b.alive = false;
+                    }
+                }
+            }
+
+            // Ball-ball collisions
+            for (let i = 0; i < balls.length; i++) {
+                if (!balls[i].alive) continue;
+                for (let j = i + 1; j < balls.length; j++) {
+                    if (!balls[j].alive) continue;
+                    collide(balls[i], balls[j]);
+                }
+            }
+
+            // Remove floor once all balls have spawned and settled a bit
+            if (!floorRemoved && spawnIndex > TOTAL_WHITE && frame > (TOTAL_WHITE + 1) * 6 + 60) {
+                floorRemoved = true;
+                floorRemovedAt = frame;
+            }
+
+            // Check if done — smooth zoom transition
+            const aliveWhite = balls.filter(b => !b.isOrange && b.alive).length;
+            if (orangeBall && orangeBall.settled && aliveWhite === 0 && !animDone) {
+                animDone = true;
+                // Zoom the orange ball on canvas
+                let zoomFrame = 0;
+                const zoomDuration = 40;
+                const startR = orangeBall.r;
+                const endR = 80; // match settled image size
+                function zoomLoop() {
+                    zoomFrame++;
+                    const t = Math.min(zoomFrame / zoomDuration, 1);
+                    const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+                    orangeBall.r = startR + (endR - startR) * ease;
+                    orangeBall.x += (CENTER_X() - orangeBall.x) * 0.1;
+                    orangeBall.y += (CENTER_Y() - orangeBall.y) * 0.1;
+                    ctx.clearRect(0, 0, W(), H());
+                    drawBall(orangeBall);
+                    if (t < 1) {
+                        requestAnimationFrame(zoomLoop);
+                    } else {
+                        canvas.style.transition = 'opacity 0.6s ease';
+                        canvas.style.opacity = '0';
+                        document.getElementById('settledBall').classList.add('visible');
+                    }
+                }
+                zoomLoop();
+                return;
+            }
+        }
+
+        function render() {
+            ctx.clearRect(0, 0, W(), H());
+            // Draw white balls first, orange on top
+            for (const b of balls) {
+                if (b.alive && !b.isOrange) drawBall(b);
+            }
+            if (orangeBall && orangeBall.alive) drawBall(orangeBall);
+        }
+
+        function loop() {
+            if (animDone) return;
+            update();
+            render();
+            requestAnimationFrame(loop);
+        }
+
+        orangeImg.onload = loop;
+        if (orangeImg.complete) loop();
+    })();
+
+    // Oscar countdown — Sun 15 Mar 2026 23:00 UK time
+    const oscarsDate = new Date('2026-03-15T23:00:00Z');
+    const timerEl = document.getElementById('countdown-timer');
+    function updateCountdown() {
+        const now = new Date();
+        const diff = oscarsDate - now;
+        if (diff <= 0) { timerEl.textContent = 'IT\'S OSCAR TIME'; return; }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        timerEl.textContent = (d > 0 ? d + 'd ' : '') + h + 'h ' + m + 'm ' + s + 's';
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Share buttons
+    const pageUrl = window.location.href;
+    const shareText = 'All I Wanted Was the Poster — Three months. Twelve cinemas. One Marty Supreme poster.';
+    document.getElementById('share-x').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + ' #MartySupreme #Oscars2026 @A24') + '&url=' + encodeURIComponent(pageUrl);
+    document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+    document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + pageUrl);
+    document.getElementById('share-copy').addEventListener('click', function() {
+        navigator.clipboard.writeText(pageUrl).then(() => {
+            this.querySelector('svg').style.display = 'none';
+            const orig = this.textContent;
+            this.textContent = 'Copied!';
+            setTimeout(() => { this.textContent = orig; this.querySelector('svg').style.display = ''; }, 2000);
+        });
+    });
+
+    const navLinks = document.querySelectorAll('.section-nav a');
+    const chapters = document.querySelectorAll('[id^="ch"]');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        chapters.forEach(ch => {
+            if (window.scrollY >= ch.offsetTop - 300) current = ch.id;
+        });
+        navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+        });
+    });
+</script>
+
+</body>
+</html>
