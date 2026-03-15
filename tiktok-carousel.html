@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Carousel — Marty Supreme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 2rem; background: #111; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; align-items: center; gap: 3rem; }
+        .label { color: #666; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.5rem; }
+        .slide {
+            width: 1080px;
+            height: 1920px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .slide.black { background: #000; color: #fff; }
+        .slide.white { background: #fff; color: #000; }
+        .slide h1 {
+            font-weight: 900;
+            font-size: 72px;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+        .slide h2 {
+            font-weight: 700;
+            font-size: 56px;
+            line-height: 1.25;
+            margin: 0;
+        }
+        .slide p {
+            font-weight: 400;
+            font-size: 44px;
+            line-height: 1.5;
+            margin: 0;
+            color: #999;
+        }
+        .slide.white p { color: #666; }
+        .slide .small {
+            font-size: 36px;
+            color: #666;
+            margin-top: 40px;
+        }
+        .slide .big-emoji {
+            font-size: 120px;
+            margin-bottom: 40px;
+        }
+        .slide .chapter {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 60px;
+        }
+        .slide.white .chapter { color: #aaa; }
+        .slide .quote-mark {
+            font-size: 200px;
+            font-weight: 900;
+            color: #222;
+            line-height: 0.5;
+            margin-bottom: 20px;
+        }
+        .slide.white .quote-mark { color: #eee; }
+        .slide .bottom-text {
+            position: absolute;
+            bottom: 100px;
+            font-size: 32px;
+            color: #555;
+        }
+        .slide .list-item {
+            font-size: 42px;
+            font-weight: 300;
+            line-height: 2;
+            color: #888;
+        }
+        .slide .list-item.crossed {
+            text-decoration: line-through;
+            color: #444;
+        }
+        .slide .highlight {
+            color: #fff;
+            font-weight: 900;
+        }
+        .slide.white .highlight { color: #000; }
+        .slide .link-box {
+            border: 3px solid #fff;
+            border-radius: 20px;
+            padding: 30px 60px;
+            margin-top: 60px;
+            font-size: 36px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1 -->
+<p class="label">Slide 1 — Hook</p>
+<div class="slide black">
+    <h1>Three months.<br>Twelve cinemas.<br>One poster.</h1>
+    <p class="small">A Marty Supreme story</p>
+</div>
+
+<!-- SLIDE 2 -->
+<p class="label">Slide 2 — Origin</p>
+<div class="slide white">
+    <div class="chapter">Before Marty</div>
+    <h2>I'm from Kazakhstan.<br>I moved to London.</h2>
+    <p style="margin-top: 40px;">I've been watching Timothee Chalamet since before I graduated from high school.</p>
+</div>
+
+<!-- SLIDE 3 -->
+<p class="label">Slide 3 — First Watch</p>
+<div class="slide black">
+    <div class="chapter">26 December 2025</div>
+    <h1>First watch.</h1>
+    <p style="margin-top: 40px;">I knew immediately.<br>I needed the poster.<br>The real one. From the cinema wall.</p>
+</div>
+
+<!-- SLIDE 4 -->
+<p class="label">Slide 4 — The Ask</p>
+<div class="slide white">
+    <h2>I wanted to put it on the wall above my bed.</h2>
+    <p style="margin-top: 40px;">That's it. That's the whole ask.</p>
+</div>
+
+<!-- SLIDE 5 -->
+<p class="label">Slide 5 — The Runaround</p>
+<div class="slide black">
+    <div class="chapter">The Runaround</div>
+    <div class="list-item crossed">Odeon Haymarket</div>
+    <div class="list-item crossed">Odeon Swiss Cottage</div>
+    <div class="list-item crossed">Odeon North Greenwich</div>
+    <div class="list-item crossed">Odeon Tottenham Court Rd</div>
+    <div class="list-item crossed">Garden Cinema</div>
+    <div class="list-item crossed">Rich Mix</div>
+    <div class="list-item crossed">Vue</div>
+    <div class="list-item crossed">Curzon</div>
+    <div class="list-item crossed">Everyman</div>
+    <div class="list-item crossed">Picturehouse</div>
+    <div class="list-item crossed">The Barbican</div>
+    <div class="list-item highlight" style="margin-top: 20px; font-size: 48px;">Prince Charles Cinema &#10003;</div>
+</div>
+
+<!-- SLIDE 6 -->
+<p class="label">Slide 6 — The Escalation</p>
+<div class="slide white">
+    <div class="chapter">The Escalation</div>
+    <h2>So I made:</h2>
+    <p style="margin-top: 40px; font-size: 48px; color: #000; font-weight: 700; line-height: 2;">
+        A 13-slide PowerPoint<br>
+        A campaign dossier<br>
+        A term sheet<br>
+        A legal contract
+    </p>
+    <p class="small" style="color: #999;">Clause 10.3: "It is a poster."</p>
+</div>
+
+<!-- SLIDE 7 -->
+<p class="label">Slide 7 — Tokyo</p>
+<div class="slide black">
+    <div class="big-emoji">🌏</div>
+    <h2>I messaged friends<br>in Tokyo:</h2>
+    <p style="margin-top: 40px; font-style: italic;">"Please get me the poster."</p>
+    <p class="small">A Kazakh in London, messaging<br>Kazakhs in Tokyo. For one poster.</p>
+</div>
+
+<!-- SLIDE 8 -->
+<p class="label">Slide 8 — The Sticker</p>
+<div class="slide white">
+    <h2>I even made a sticker.</h2>
+    <p style="margin-top: 40px;">The most accurate portrait<br>of my emotional state.</p>
+    <p class="small" style="font-size: 28px;">(it's a monkey in a Marty Supreme hoodie)</p>
+</div>
+
+<!-- SLIDE 9 -->
+<p class="label">Slide 9 — Prince Charles Cinema</p>
+<div class="slide black">
+    <div class="quote-mark">"</div>
+    <h1 style="font-size: 64px;">I walked into<br>Prince Charles Cinema.<br><br>I asked.<br><br>They said yes.</h1>
+</div>
+
+<!-- SLIDE 10 -->
+<p class="label">Slide 10 — The Wall</p>
+<div class="slide white">
+    <h1>The poster's<br>on the wall.</h1>
+    <h2 style="margin-top: 20px; color: #999;">The wall is complete.</h2>
+</div>
+
+<!-- SLIDE 11 -->
+<p class="label">Slide 11 — CTA</p>
+<div class="slide black">
+    <h2>Good luck, Timmy.<br>Get that Oscar.</h2>
+    <h1 style="margin-top: 60px; letter-spacing: 0.1em;">ALWAYS<br>DREAM BIG</h1>
+    <div class="big-emoji" style="margin-top: 40px; margin-bottom: 0;">🏓</div>
+    <div class="link-box">Full story: link in bio</div>
+</div>
+
+</body>
+</html>
